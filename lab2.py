@@ -34,10 +34,24 @@ pizza_cost = whole_pizza * pizza_cost
 salad_cost = salad_ord * salad_cost
 
 #calculate discount
-pizza_discount = (pizza_cost * discount_rate) if whole_pizza > pizza_discount_threshold else 0
+pizza_discount = (pizza_cost * discount_rate) if pizza_ord > pizza_discount_threshold else 0
 salad_discount = (salad_cost * discount_rate) if salad_ord > salad_discount_threshold else 0
 toal_discount = pizza_discount + salad_discount
 
 #delivery fee
 pre_discount = pizza_cost + salad_cost
-min_delivery_fee = max(pre_discount *  delivery_rate, min_delivery_fee)
+delivery_fee = max(pre_discount *  delivery_rate, min_delivery_fee)
+
+#total amount
+final_total = pre_discount - toal_discount + delivery_rate
+
+
+#print receipt for user
+print(f"pizzas ordered: {pizza_ord}")
+print(f"pizza cost $ {pizza_cost}")
+print(f"salad cost $ {salad_cost}")
+print(f"discount $ {toal_discount}")
+print(f"delivery fee $ {delivery_fee}")
+print(f"final total $ {final_total}")
+
+
