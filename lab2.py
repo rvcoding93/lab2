@@ -8,3 +8,15 @@
 #          applies applicable discounts, calculates the delivery fee, and displays
 #          the final amount due.
 # Resources Used: No external sources were used. Only personal knowledge and course materials.
+
+
+# Constants
+PIZZA_COST = 15.99  # whole pizza cost
+SALAD_COST = 7.99   # salad cost
+SLICES_PER_PIZZA = 12  # slices in a whole pizza
+SLICES_PER_PERSON = 3  # slices per person
+PIZZA_DISCOUNT_THRESHOLD = 10  # discount if more than 10 whole pizzas are ordered
+SALAD_DISCOUNT_THRESHOLD = 10  # discount if more than 10 salads are ordered
+DISCOUNT_RATE = 0.15  # discount rate
+DELIVERY_RATE = 0.07  # delivery charge
+MIN_DELIVERY_FEE = 20.00  # Minimum delivery charge
