@@ -11,12 +11,33 @@
 
 
 # Constants
-PIZZA_COST = 15.99  # whole pizza cost
-SALAD_COST = 7.99   # salad cost
-SLICES_PER_PIZZA = 12  # slices in a whole pizza
-SLICES_PER_PERSON = 3  # slices per person
-PIZZA_DISCOUNT_THRESHOLD = 10  # discount if more than 10 whole pizzas are ordered
-SALAD_DISCOUNT_THRESHOLD = 10  # discount if more than 10 salads are ordered
-DISCOUNT_RATE = 0.15  # discount rate
-DELIVERY_RATE = 0.07  # delivery charge
-MIN_DELIVERY_FEE = 20.00  # Minimum delivery charge
+pizza_cost = 15.99  # whole pizza cost
+salad_cost = 7.99   # salad cost
+slices_per_pizza = 12  # slices in a whole pizza
+slices_per_person = 3  # slices per person
+pizza_discount_threshold = 10  # discount if more than 10 whole pizzas are ordered
+salad_discount_threshold = 10  # discount if more than 10 salads are ordered
+discount_rate = 0.15  # discount rate
+delivery_rate = 0.07  # delivery charge
+min_delivery_fee = 20.00  # Minimum delivery charge
+
+#gather input from user to pass through later
+pizza_ord = int(input("Number of pizza orders: "))
+salad_ord = int(input("Number of pizza orders: "))
+
+#calculate pizzas
+total_slices = pizza_ord * slices_per_person
+whole_pizza = -(-total_slices//slices_per_pizza)
+pizza_cost = whole_pizza * pizza_cost
+
+#calculate salad
+salad_cost = salad_ord * salad_cost
+
+#calculate discount
+pizza_discount = (pizza_cost * discount_rate) if whole_pizza > pizza_discount_threshold else 0
+salad_discount = (salad_cost * discount_rate) if salad_ord > salad_discount_threshold else 0
+toal_discount = pizza_discount + salad_discount
+
+#delivery fee
+pre_discount = pizza_cost + salad_cost
+min_delivery_fee = max(pre_discount *  delivery_rate, min_delivery_fee)
