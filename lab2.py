@@ -9,7 +9,8 @@
 #          the final amount due.
 # Resources Used: No external sources were used. Only personal knowledge and course materials.
 
-# Constants
+
+#established variables
 pizza_cost = 15.99  # whole pizza cost
 salad_cost = 7.99   # salad cost
 slices_per_pizza = 12  # slices in a whole pizza
@@ -20,31 +21,31 @@ discount_rate = 0.15  # discount rate
 delivery_rate = 0.07  # delivery charge
 min_delivery_fee = 20.00  # Minimum delivery charge
 
-# Gather input from user
+#gather input from user
 pizza_ord = int(input("Number of pizza orders: "))
 salad_ord = int(input("Number of salad orders: "))
 
-# Calculate pizzas
+# calculate pizzas
 total_slices = pizza_ord * slices_per_person
 whole_pizza = (total_slices + slices_per_pizza - 1) // slices_per_pizza  # Ceiling division without imports
 pizza_order_cost = whole_pizza * pizza_cost
 
-# Calculate salad
+# calculate salad
 salad_order_cost = salad_ord * salad_cost
 
-# Calculate discount
+# calculate discount
 pizza_discount = (pizza_order_cost * discount_rate) if whole_pizza > pizza_discount_threshold else 0
 salad_discount = (salad_order_cost * discount_rate) if salad_ord > salad_discount_threshold else 0
 total_discount = pizza_discount + salad_discount
 
-# Calculate delivery fee
+# calculate delivery fee
 pre_discount = pizza_order_cost + salad_order_cost
 delivery_fee = max(pre_discount * delivery_rate, min_delivery_fee)
 
-# Calculate total amount
+# calculate total amount
 final_total = pre_discount - total_discount + delivery_fee
 
-# Print receipt for user
+# print receipt for user
 print(f"Pizzas ordered: {whole_pizza}")
 print(f"Pizza cost $ {pizza_order_cost}")
 print(f"Salad cost $ {salad_order_cost}")
